@@ -10,7 +10,8 @@ public:
 	//Keep Bullet Run 
 	void update();
 	
-	Texture texture;
-	Sprite sprite;
+
+	//Bullet Sprite
+	Sprite blink;
 };
 
