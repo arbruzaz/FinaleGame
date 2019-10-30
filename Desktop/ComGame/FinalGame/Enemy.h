@@ -14,6 +14,7 @@ public:
 	int aliceS = 1;
 	int direction;
 	int changeDirectionTime = 0;
+	int ftime = 0;
 
 	int generateRandom(int max); 
 	void movement();

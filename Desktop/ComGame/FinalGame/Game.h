@@ -23,7 +23,7 @@ public:
 	Texture bulletTexture;
 
 	std::vector<Enemy> enemies;
-
+	
 
 	Texture texbg;
 	Sprite map;
@@ -43,6 +43,8 @@ public:
 	void spawnEnemy(); //Pushback enemy
 	void updateEnemies();
 	void firebullet(); //Keypressed fire
+	void bullethit(); //Check bullet hit
+	void playerhitenemy();
 	void update(); //Update Stuff
 
 	//Render

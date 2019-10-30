@@ -5,8 +5,8 @@ Enemy::Enemy() : track(), alicetexture(), alice(),
 {
 	alicetexture.loadFromFile("characters/Alice.png");
 
-	aliceX = alicetexture.getSize().x / 8;
-	aliceY = alicetexture.getSize().x / 4.5;
+	aliceX = alicetexture.getSize().x / 8.07;
+	aliceY = alicetexture.getSize().x / 4.58;
 
 	alice.setTexture(alicetexture);
 	alice.setTextureRect(
@@ -64,8 +64,13 @@ void Enemy::movement()
 			IntRect(aliceX * alicef, aliceY * 2, aliceX, aliceY));
 	}
 	alice.setPosition(track.getPosition());
-	alicef++;
-	
+	if (ftime > 10)
+	{
+		alicef++;
+		ftime = 0;
+	}
+	else ftime++;
+
 	if (changeDirectionTime >= 250)
 	{
 		direction = generateRandom(4);

@@ -127,6 +127,35 @@ void Game::firebullet()
 		bullet.blink.setTexture(bulletTexture);
 		bullets.push_back(bullet);
 	}
+
+}
+
+void Game::bullethit()
+{
+	//Bullet hit success but crash!!!!!!!!!!!!!!!!
+	for (int i = 0; i < bullets.size(); i++)
+	{
+		if (bullets[i].blink.getGlobalBounds().intersects(
+			enemies[i].track.getGlobalBounds()))
+		{
+			enemies.erase(enemies.begin() + i);
+			bullets.erase(bullets.begin() + i);
+		}
+	}
+}
+
+
+
+void Game::playerhitenemy()
+{
+	for (int i = 0; i < enemies.size(); i++)
+	{
+		if (player.track.getGlobalBounds().intersects(
+			enemies[i].track.getGlobalBounds()))
+		{
+			player.track.setPosition(400, 200);
+		}
+	}
 }
 
 void Game::update()
@@ -136,7 +165,8 @@ void Game::update()
 	
 	//Enemy Update
 	updateEnemies();
-
+	playerhitenemy();
+	bullethit();
 
 	//--------Bullets Stuff--------
 	//Bullets Movement
