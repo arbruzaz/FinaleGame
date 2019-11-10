@@ -2,66 +2,81 @@
 
 Player::Player() : Tom(), tomtexture(), track()
 {
+
+	//=====================================
+	//              PLAYER 1 TOM
+	//=====================================
+	
+	//Texture Stuff
 	tomtexture.loadFromFile("characters/Tom.png");
 	
-	int spriteSizeX = tomtexture.getSize().x / 3;
-	int spriteSizeY = tomtexture.getSize().y / 3;
+	tomSizeX = tomtexture.getSize().x / 3;
+	tomSizeY = tomtexture.getSize().y / 3;
 
 	Tom.setTexture(tomtexture);
 	Tom.setTextureRect(
-		IntRect(0, 0, spriteSizeX, spriteSizeY));
+		IntRect(0, 0, tomSizeX, tomSizeY));
 
-	Tom.setScale(0.06, 0.06);
-	Tom.setOrigin(Vector2f(spriteSizeX / 2, spriteSizeY / 2));
-	
-	//Tracking Object
-	track.setSize(Vector2f(spriteSizeX,spriteSizeY));
-	track.setScale(0.06, 0.06);
+	Tom.setScale(0.03, 0.03);
+	Tom.setOrigin(Vector2f(tomSizeX / 2, tomSizeY / 2));
+	//DescribePlayer
+	tomspeed = 5;
+	tomhp = 15;
+
+	//=============================
+	//      Tracking Object
+	//=============================
+	track.setSize(Vector2f(tomSizeX, tomSizeY));
+	track.setScale(0.03, 0.03);
 	track.setFillColor(Color::Transparent);
 	track.setOutlineColor(Color::Green);
 	track.setOutlineThickness(100);
-	track.setOrigin(Vector2f(spriteSizeX / 2, spriteSizeY / 2));
+	track.setOrigin(Vector2f(tomSizeX / 2, tomSizeY / 2));
 	
 	
 }
 
-void Player::update()
+void Player::updateTom()
 {
-	int spriteSizeX = tomtexture.getSize().x / 3;
-	int spriteSizeY = tomtexture.getSize().y / 3;
+
 	if (Keyboard::isKeyPressed(Keyboard::W))
 	{
 		direction = 1;
-		track.move(0.f, -10.f);
+		track.move(0.f, -tomspeed);
 		Tom.setPosition(track.getPosition());
-		Tom.setTextureRect(IntRect(spriteSizeX * animationFrame, spriteSizeY * 2, spriteSizeX, spriteSizeY));	
+		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 2, tomSizeX, tomSizeY));
 	}
 	if (Keyboard::isKeyPressed(Keyboard::S))
 	{
 		direction = 2;
-		track.move(0.f, 10.f);
+		track.move(0.f, tomspeed);
 		Tom.setPosition(track.getPosition());
-		Tom.setTextureRect(IntRect(spriteSizeX * animationFrame, spriteSizeY * 2, spriteSizeX, spriteSizeY));
+		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 2, tomSizeX, tomSizeY));
 		
 	}
 	if (Keyboard::isKeyPressed(Keyboard::A))
 	{
 		direction = 3;
-		track.move(-10.f, 0.f);
+		track.move(-tomspeed, 0.f);
 		Tom.setPosition(track.getPosition());
-		Tom.setTextureRect(IntRect(spriteSizeX * animationFrame, spriteSizeY * 1, spriteSizeX, spriteSizeY));
+		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 1, tomSizeX, tomSizeY));
 		
 	}
 	if (Keyboard::isKeyPressed(Keyboard::D))
 	{
 		direction = 4;
-		track.move(10.f, 0.f);
+		track.move(tomspeed, 0.f);
 		Tom.setPosition(track.getPosition());
-		Tom.setTextureRect(IntRect(spriteSizeX * animationFrame, 0, spriteSizeX, spriteSizeY));
+		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, 0, tomSizeX, tomSizeY));
 		
 	}
 
 	animationFrame++;
 	if (animationFrame >= 3)
 		animationFrame = 0;
+}
+
+void Player::update()
+{
+	updateTom();
 }

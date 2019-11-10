@@ -3,7 +3,7 @@
 
 Bullet::Bullet() : blink()
 {
-	blink.setScale(0.05f, 0.05f);
+	blink.setScale(0.02f, 0.02f);
 }
 //Keep Bullet Move to The Right deirection
 void Bullet::update()
