@@ -9,7 +9,7 @@ Enemy::Enemy() : trackalice(), alicetexture(), alice(),
 	initdoom();    //BOSS2
 	initclose();   //ENEMY1
 	initlong();	   //ENEMY2
-
+	initbill();    //BOSS3
 }
 
 int Enemy::generateRandom(int max)
@@ -127,6 +127,33 @@ void Enemy::initlong()
 
 
 	longenemy.setPosition(tracklong.getPosition());
+}
+
+void Enemy::initbill()
+{
+	//===================
+	//      BOSS 3
+	//===================
+	billietexture.loadFromFile("characters/bill.png");
+
+	billX = billietexture.getSize().x;
+	billY = billietexture.getSize().y;
+
+	billie.setTexture(billietexture);
+	billie.setTextureRect(IntRect
+	(0, 0, billX, billY));
+	billie.setScale(3, 3);
+	billie.setOrigin(Vector2f(billX / 2, billY / 2));
+
+	trackbill.setSize(Vector2f(billX, billY));
+	trackbill.setOrigin(billX / 2, billY / 2);
+	trackbill.setFillColor(Color::Transparent);
+	trackbill.setOutlineColor(Color::Green);
+	trackbill.setOutlineThickness(1);
+	trackbill.setScale(3, 3);
+
+
+	billie.setPosition(trackbill.getPosition());
 }
 
 void Enemy::movement()
@@ -270,12 +297,16 @@ void Enemy::closemovement()
 	}
 	else ftime++;
 
-	if (changeDirectionTime >= 250)
+	if (!follow)
 	{
-		direction = generateRandom(4);
-		changeDirectionTime = 0;
+		if (changeDirectionTime >= 250)
+		{
+			direction = generateRandom(4);
+			changeDirectionTime = 0;
+		}
+		else changeDirectionTime++;
 	}
-	else changeDirectionTime++;
+		
 
 
 	if (closef == 4)
@@ -330,5 +361,59 @@ void Enemy::longmovement()
 	if (longf == 5)
 	{
 		longf = 0;
+	}
+}
+
+void Enemy::billmovement()
+{
+	if (direction == 1) //UP
+	{
+		trackbill.move(0, -billS);
+		billie.setTextureRect(
+			IntRect(billX * billief, billY, billX, billY));
+	}
+	else if (direction == 2) //DOWN
+	{
+		trackbill.move(0, billS);
+		billie.setTextureRect(
+			IntRect(billX * billief, 0, billX, billY));
+
+	}
+	else if (direction == 3) //LEFT
+	{
+		trackbill.move(-billS, 0);
+		billie.setTextureRect(
+			IntRect(billX * billief, billY * 2, billX, billY));
+	}
+	else if (direction == 4) //RIGHT
+	{
+		trackbill.move(billS, 0);
+		billie.setTextureRect(
+			IntRect(billX * billief, billY * 3, billX, billY));
+	}
+	billie.setPosition(trackbill.getPosition());
+
+	if (ftime > 10)
+	{
+		billief++;
+		ftime = 0;
+	}
+	else ftime++;
+
+	if (!follow)
+	{
+		if (changeDirectionTime >= 250)
+		{
+			direction = generateRandom(4);
+			changeDirectionTime = 0;
+		}
+		else changeDirectionTime++;
+	}
+
+
+
+	if (billief == 4)
+	{
+		billief = 0;
 	}
 }

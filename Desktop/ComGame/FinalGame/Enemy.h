@@ -31,6 +31,17 @@ public:
 	RectangleShape trackdoom;
 
 	//==========================
+	//           BOSS 3
+	//==========================
+	Texture billietexture;
+	Sprite billie;
+	int billief = 0;
+	float billX, billY;
+	float billS = 1;
+	float billhp = 20;
+	RectangleShape trackbill;
+
+	//==========================
 	//        CLOSE Enemy
 	//==========================
 	Texture closetexture;
@@ -59,6 +70,7 @@ public:
 
 	//SET ALIVE
 	bool alive = true;
+	bool follow = false;
 
 	int generateRandom(int max); 
 
@@ -66,11 +78,13 @@ public:
 	void initdoom();
 	void initclose();
 	void initlong();
+	void initbill();
 
 	void movement();
 	void alicemovement();
 	void doommovement();
 	void closemovement();
 	void longmovement();
+	void billmovement();
 };
 

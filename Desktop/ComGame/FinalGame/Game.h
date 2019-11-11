@@ -7,6 +7,7 @@
 #include "Bullet.h"
 #include "Enemy.h"
 #include "Map.h"
+#include "EnemiesBullet.h"
 
 
 
@@ -25,6 +26,7 @@ public:
 	Enemy enemy;
 	Bullet bullet;
 	Map map;
+	EnemiesBullet enemyBullet;
 
 	//Objects
 	std::vector<Bullet> bullets;
@@ -32,10 +34,11 @@ public:
 
 	std::vector<Enemy> enemiesalice;
 	std::vector<Enemy> enemiesdoom;
+	std::vector<Enemy> enemiesbillie;
 	std::vector<Enemy> enemiesclose;
 	std::vector<Enemy> enemieslong;
 	
-	//ENEMIES TEXTURE
+	RectangleShape change;
 	
 
 	//Variables
@@ -43,14 +46,31 @@ public:
 	int currentenemiestime = 300; //For SPAWN ENEMY
 	int enemyrandom;  //For random Normal Enemy
 	
+	int boss;    //CHECK BOSS SPAWN
+
+	int nowalice = 0;
 	int maxalice = 3;
+	int killalice = 0;
+
+	int nowdoom = 0;
 	int maxdoom = 2;
+	int killdoom = 0;
+
+	int nowbillie = 0;
+	int maxbillie = 1;
+	int killbillie = 0;
 	
-	int countnormalenemy = 0; //Check amout normal enemy
+	int killenemy; //Cout enemies killed 
 	int maxenemies = 15; //MAX NORMAL ENEMIES
 	
 	int spawntimes = 100; //MAXSPAWNTIME ENEMY
 	
+	int stage = 1;   //STAGE GAME
+	bool changestage = false;
+	
+	
+	
+
 	int generateRandom(int max);
 
 	int posPX; //Check Collision QD
@@ -64,28 +84,72 @@ public:
 	
 	//===============UPDATE=================
 
+	//STAGE UPDATE
+	void stagechange();
+	void spawndoor();
+
 	//Enemies Update
+	void countenemy();
 	//ENEMIES SPAWN AND MOVEMENT
 	void spawnalice(); //Pushback ALICE
 	void spawndoom(); //PUSHBACK DOOM
+	void spawnbille(); //PUSHBACK BILLIE
+
 	void spawnsmallenemy(); //SPAWN NORMAL ENEMIES
 
 	void updateEnemies(); //Enemies Movement
 	void updatealice(); //UPDATE AND SPAWN ALICE
 	void updatedoom(); //UPDATE AND SPAWN DOOM
+	void updatebillie(); //UPDATE AND SPAWN BILLIE
 	void updatesmallenemy(); //UPDATE NORMAL ENEMY MOVEMENT
+
+	//Follow Enemies STUFF
+	void closefollow();
+	void longfollow();
+	void alicefollow();
+	void doomfollow();
+	void billiefollow();
 	
 
-
-	//Bullets Update
-	//BULLET HIT OBJECTS
+	//==========================
+	//      Bullets Update
+	//==========================
 	void updatebullet(); //bullet movement
+	
+	//BULLETPLAYER HIT OBJECTS
 	void firebullet(); //Keypressed fire
 	void bullethit(); //Check bullet hit
 	void bullethitalice(); //BULLET HIT ALICE
 	void bullethitdoom();  //BULLET HIT DOOM
+	void bullethitbillie(); 
 	void bullethitclose();  //BULLET HIT CLOSE
 	void bullethitlong();  //BULLET HIT LONG
+
+	//ENEMIES BULLET 
+	Texture alicebul;
+	Texture doombul;
+	Texture billbul;
+	Texture closebul;
+	Texture longbul;
+
+	std::vector<EnemiesBullet> aliceb;
+	std::vector<EnemiesBullet> doomb;
+	std::vector<EnemiesBullet> billb;
+	std::vector<EnemiesBullet> closeb;
+	std::vector<EnemiesBullet> longb;
+
+	int maxenemybulletnormal = 1;
+	int maxbulletboss = 3;
+	int bullettime = 0;
+	int bossbullettime = 350;
+	int normalbullettime = 250;
+
+	void bulletalice();
+	void bulletdoom();
+	void bulletbill();
+	void bulletclose();
+	void bulletlong();
+
 	
 
 
@@ -95,8 +159,10 @@ public:
 	void playerhitenemy(); //Check player collide with enemies
 	void playerhitalice(); //CHECK PLAYER COLLIDE WITH ALICE
 	void playerhitdoom(); //CHECK PLAYER COLLIDE WITH DOOM
+	void playerhitbilie();
 	void playerhitclose(); //CHECK PLAYER COLLIDE WITH CLOSE
 	void playerhitlong(); //CHECK PLAYER COLLIDE WITH LONG
+	void playerhitdoor(); //TO CHANGE STAGE
 
 	//FRAME
 	void framebound(); //Game Frame Bound
@@ -106,6 +172,7 @@ public:
 	void enemieshitframe(); //Enemies walk to frame
 	void alicehitfram(); //ALICE HIT FRAME 
 	void doomhitframe(); //DOOM HIT FRAME
+	void billiehitframe();
 	void closehitframe(); //CLOSE HIT FRAME
 	void longhitframe(); //LONG HIT FRAME
 
@@ -119,6 +186,7 @@ public:
 	void renderenemies(); //render enemies
 	void renderalice(); //RENDER ALICE
 	void renderdoom(); //RENDER DOOM
+	void renderbillie();
 	void renderclose(); //RENDER NORMAL ENEMIES
 	void renderlong(); //RENDER NORMAL ENEMIES
 
