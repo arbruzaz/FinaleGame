@@ -10,7 +10,6 @@
 #include "EnemiesBullet.h"
 
 
-
 using namespace sf;
 class Game
 {
@@ -26,7 +25,7 @@ public:
 	Enemy enemy;
 	Bullet bullet;
 	Map map;
-	EnemiesBullet enemyBullet;
+	EnemiesBullet enemybullet;
 
 	//Objects
 	std::vector<Bullet> bullets;
@@ -65,7 +64,7 @@ public:
 	
 	int spawntimes = 100; //MAXSPAWNTIME ENEMY
 	
-	int stage = 1;   //STAGE GAME
+	int stage = 3;   //STAGE GAME
 	bool changestage = false;
 	
 	
@@ -73,8 +72,8 @@ public:
 
 	int generateRandom(int max);
 
-	int posPX; //Check Collision QD
-	int posPY;
+	float posPX; //Check Collision QD
+	float posPY;
 
 
 	//Game Window Running
@@ -126,29 +125,37 @@ public:
 	void bullethitlong();  //BULLET HIT LONG
 
 	//ENEMIES BULLET 
-	Texture alicebul;
-	Texture doombul;
-	Texture billbul;
-	Texture closebul;
-	Texture longbul;
+	Texture alicetexture;
+	Texture doomtexture;
+	Texture billtexture;
+	Texture longtexture;
 
 	std::vector<EnemiesBullet> aliceb;
 	std::vector<EnemiesBullet> doomb;
 	std::vector<EnemiesBullet> billb;
-	std::vector<EnemiesBullet> closeb;
 	std::vector<EnemiesBullet> longb;
 
-	int maxenemybulletnormal = 1;
-	int maxbulletboss = 3;
-	int bullettime = 0;
+	
+	
 	int bossbullettime = 350;
 	int normalbullettime = 250;
+	int delaybullet = 300;
+
+	void enemiesbullet();
 
 	void bulletalice();
 	void bulletdoom();
 	void bulletbill();
-	void bulletclose();
 	void bulletlong();
+
+	void updatealicebullet();
+	void alicebullethit();
+	void updatedoombullet();
+	void doombullethit();
+	void updatebillbullet();
+	void billbullethit();
+	void updatelongbullet();
+	void longbullethit();
 
 	
 
@@ -191,6 +198,8 @@ public:
 	void renderlong(); //RENDER NORMAL ENEMIES
 
 	void renderbullets(); //render bullets
+	void renderenemiesbullet();
+
 	void rendermap();
 	void render(); //Render Objects
 	

@@ -1,272 +1,134 @@
-﻿  EnemiesBullet.cpp
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(11,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(14,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(17,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(20,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(27,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(30,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(33,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(36,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(43,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(46,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(49,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(52,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(59,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(62,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(65,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(68,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(75,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(78,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(81,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  FinalGame.cpp
+﻿  FinalGame.cpp
   Game.cpp
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\EnemiesBullet.cpp(84,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\FinalGame.cpp(64,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(9,17): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(34,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(35,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244:             T=unsigned int
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244:         and
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(194,52): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244:             T=unsigned int
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244:         and
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(195,55): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(249,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(249,17): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(249,17): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(249,17): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(249,17): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(248,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(248,17): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(248,17): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(248,17): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(248,17): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(258,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(258,17): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(258,17): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(258,17): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(258,17): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(257,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(257,17): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(257,17): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(257,17): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(257,17): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(267,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(267,17): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(267,17): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(267,17): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(267,17): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(266,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(266,17): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(266,17): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(266,17): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(266,17): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(279,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(279,18): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(279,18): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(279,18): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(279,18): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(278,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(278,18): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(278,18): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(278,18): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(278,18): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(288,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(288,18): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(288,18): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(288,18): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(288,18): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(287,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(287,18): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(287,18): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(287,18): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(287,18): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(486,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(486,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(486,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(486,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(486,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(487,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(487,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(487,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(487,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(487,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(522,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(522,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(522,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(522,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(522,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(523,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(523,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(523,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(523,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(523,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(558,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(558,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(558,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(558,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(558,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(559,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(559,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(559,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(559,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(559,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(594,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(594,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(594,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(594,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(594,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(595,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(595,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(595,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(595,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(595,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(630,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(630,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(630,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(630,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(630,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(631,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(631,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(631,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(631,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(631,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244:             T=unsigned int
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244:         and
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(683,31): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244:             T=unsigned int
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244:         and
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(682,62): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(929,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(929,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(929,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(929,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(929,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(930,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(930,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(930,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(930,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(930,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(938,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(938,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(944,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(944,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(955,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(955,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(961,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(961,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(974,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(974,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(974,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(974,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(974,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(975,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(975,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(975,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(975,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(975,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(983,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(983,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(989,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(989,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1000,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1000,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1006,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1006,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1019,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1019,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1019,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1019,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1019,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1020,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1020,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1020,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1020,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1020,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1028,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1028,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1034,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1034,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1045,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1045,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1051,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1051,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1064,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1064,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1064,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1064,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1064,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1065,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1065,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1065,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1065,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1065,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1073,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1073,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1079,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1079,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1090,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1090,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1096,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1096,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1109,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1109,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1109,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1109,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1109,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1110,37): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1110,37): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1110,37): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1110,37): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1110,37): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1118,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1118,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1124,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1124,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1135,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1135,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1141,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1141,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1167,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1167,36): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1167,36): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1167,36): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1167,36): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1168,36): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1168,36): warning C4244:         with
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1168,36): warning C4244:         [
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1168,36): warning C4244:             T=float
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1168,36): warning C4244:         ]
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1171,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1171,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1176,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1176,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1181,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1181,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1186,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(25,48): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(25,48): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(25,48): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(25,48): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(25,48): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(26,48): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(26,48): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(26,48): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(26,48): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(26,48): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(28,46): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(28,46): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(28,46): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(28,46): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(28,46): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(29,46): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(29,46): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(29,46): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(29,46): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(29,46): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(31,46): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(31,46): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(31,46): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(31,46): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(31,46): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(32,43): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(32,43): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(32,43): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(32,43): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(32,43): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(34,46): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(34,46): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(34,46): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(34,46): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(34,46): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(35,46): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(35,46): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(35,46): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(35,46): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(35,46): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(45,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(46,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244:         and
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(238,52): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244:         and
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(239,55): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(294,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(294,17): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(294,17): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(294,17): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(294,17): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(293,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(293,17): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(293,17): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(293,17): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(293,17): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(303,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(303,17): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(303,17): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(303,17): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(303,17): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(302,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(302,17): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(302,17): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(302,17): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(302,17): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(312,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(312,17): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(312,17): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(312,17): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(312,17): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(311,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(311,17): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(311,17): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(311,17): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(311,17): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(324,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(324,18): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(324,18): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(324,18): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(324,18): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(323,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(323,18): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(323,18): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(323,18): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(323,18): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(333,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(333,18): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(333,18): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(333,18): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(333,18): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(332,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(332,18): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(332,18): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(332,18): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(332,18): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244:         and
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(737,31): warning C4244:         ]
   Generating Code...
-C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(1186,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244:         with
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244:             T=unsigned int
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244:         ]
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244:         and
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244:         [
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244:             T=float
+C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\Game.cpp(736,62): warning C4244:         ]
   FinalGame.vcxproj -> C:\Users\Nawapol Krudpun\Desktop\ComGame\FinalGame\x64\Debug\FinalGame.exe

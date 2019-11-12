@@ -14,7 +14,7 @@ public:
 	Sprite Tom;
 	Texture tomtexture;
 	float tomspeed;
-	int tomhp;
+	int tomhp = 15;
 	int tomSizeX;
 	int tomSizeY;
 	

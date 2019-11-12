@@ -16,7 +16,7 @@ public:
 	int alicef = 0;  //ANIMATION FRAMES
 	float aliceX, aliceY; //SPRITE DIVIDE
 	float aliceS = 1; //ALICE SPEED
-	float alicehp = 15; //ALICE HP
+	float alicehp = 1; //ALICE HP
 	RectangleShape trackalice;
 
 	//==========================
@@ -71,6 +71,7 @@ public:
 	//SET ALIVE
 	bool alive = true;
 	bool follow = false;
+	int amoutbullet = 0;
 
 	int generateRandom(int max); 
 
@@ -86,5 +87,7 @@ public:
 	void closemovement();
 	void longmovement();
 	void billmovement();
+
+	
 };
 

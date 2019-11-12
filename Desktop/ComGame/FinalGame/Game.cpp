@@ -2,7 +2,7 @@
 #include <iostream>
 
 Game::Game() : window(VideoMode(1920, 1080), "Blink Game"), player(), ev(), bulletTexture(),
-	view(FloatRect(0.f, 0.f, 960.f, 540.f)),map(),enemy()
+	view(FloatRect(0.f, 0.f, 1920.f, 1080.f)),map(),enemy()
 {
 	window.setFramerateLimit(60);
 
@@ -16,12 +16,23 @@ Game::Game() : window(VideoMode(1920, 1080), "Blink Game"), player(), ev(), bull
 	player.Tom.setPosition(player.track.getPosition());
 
 	//ENEMIES BULLET TEXTURE
-	alicebul.loadFromFile("characters/alicebullet.png");
-	doombul.loadFromFile("characters/doombullet.png");
-	billbul.loadFromFile("characters/dommbullet.png");
-	closebul.loadFromFile("characters/closebullet.png");
-	longbul.loadFromFile("characters/longbullet.png");
+	alicetexture.loadFromFile("characters/alicebullet.png");
+	doomtexture.loadFromFile("characters/doombullet.png");
+	billtexture.loadFromFile("characters/dommbullet.png");
+	longtexture.loadFromFile("characters/longbullet.png");
 
+
+	enemybullet.aliceX = alicetexture.getSize().x / 5;
+	enemybullet.aliceY = alicetexture.getSize().y /4;
+
+	enemybullet.doomX = doomtexture.getSize().x / 2;
+	enemybullet.doomY = doomtexture.getSize().y / 4;
+
+	enemybullet.longX = longtexture.getSize().x / 2;
+	enemybullet.longY = longtexture.getSize().y;
+
+	enemybullet.billX = billtexture.getSize().x / 2;
+	enemybullet.billY = billtexture.getSize().y / 4;
 
 	
 	change.setSize(Vector2f(250, 250));
@@ -110,9 +121,22 @@ void Game::playerhitdoor()
 			nowdoom = 0;
 			nowbillie = 0;
 			changestage = false;		
+
+			aliceb.clear();
+			doomb.clear();
+			billb.clear();
+			longb.clear();
+
+			enemiesalice.clear();
+			enemiesdoom.clear();
+			enemiesbillie.clear();
+			enemiesclose.clear();
+			enemieslong.clear();
 		}
 	}
 	
+	
+
 }
 
 //================================
@@ -186,6 +210,26 @@ void Game::renderbullets()
 	}
 }
 
+void Game::renderenemiesbullet()
+{
+	for (int i = 0; i < aliceb.size(); i++)
+	{
+		window.draw(aliceb[i].alicebullet);
+	}
+	for (int i = 0; i < doomb.size(); i++)
+	{
+		window.draw(doomb[i].doombullet);
+	}
+	for (int i = 0; i < billb.size(); i++)
+	{
+		window.draw(billb[i].billbullet);
+	}
+	for (int i = 0; i < longb.size(); i++)
+	{
+		window.draw(longb[i].longbullet);
+	}
+}
+
 
 //RENDER MAP
 void Game::rendermap()
@@ -213,6 +257,7 @@ void Game::render()
     
 	renderenemies();
 	renderbullets();
+	renderenemiesbullet();
 	spawndoor();
 	
 }
@@ -228,15 +273,15 @@ void Game::render()
 
 void Game::countenemy()
 {
-	if (killenemy >= maxenemies * stage && stage == 1)
+	if (killenemy >= 1 * stage && stage == 1)
 	{
 		boss = 1;	
 	}
-	if (killenemy >= maxenemies * stage && stage == 2)
+	if (killenemy >= 1 * stage && stage == 2)
 	{
 		boss = 2;
 	}
-	if (killenemy >= maxenemies * stage && stage == 3)
+	if (killenemy >= 1 * stage && stage == 3)
 	{
 		boss = 3;
 	}
@@ -294,10 +339,19 @@ void Game::spawnsmallenemy()
 
 void Game::updateEnemies()
 {
-	updatealice();
-	updatedoom();
+	if (stage == 1) {
+		updatealice();
+	}
+	if (stage == 2) {
+		updatealice();
+		updatedoom();
+	}
+	if (stage == 3) {
+		updatealice();
+		updatedoom();
+		updatebillie();
+	}
 	updatesmallenemy();
-	updatebillie();
 	countenemy();
 }
 
@@ -353,8 +407,9 @@ void Game::updatealice()
 
 void Game::updatedoom()
 {
-	if (boss > 1)
+	if (boss >= 2)
 	{
+		
 		if (stage == 2)
 		{
 			if (nowdoom < maxdoom)
@@ -368,7 +423,7 @@ void Game::updatedoom()
 				else
 					currentenemiestime++;
 
-			}
+			}			
 		}
 		else if (stage > 2)
 		{
@@ -377,7 +432,6 @@ void Game::updatedoom()
 				if (currentenemiestime >= spawntimes)
 				{
 					spawndoom();
-					nowdoom++;
 					currentenemiestime = 0;
 				}
 				else
@@ -726,6 +780,7 @@ void Game::updatebullet()
 	{
 		bullets[i].update();
 	}
+	bullethit();
 }
 
 //BULLET HIT ENEMIES
@@ -737,10 +792,16 @@ void Game::bullethit()
 	bullethitclose();
 	bullethitlong();
 	bullethitbillie();
+	//enemiesbullet();
 }
+
+
 
 void Game::bullethitalice()
 {
+	if (bullets.empty()) {
+		return;
+	}
 	for (int i = 0; i < bullets.size(); i++)
 	{
 		for (int j = 0; j < enemiesalice.size(); j++)
@@ -770,6 +831,9 @@ void Game::bullethitalice()
 
 void Game::bullethitdoom()
 {
+	if (bullets.empty() || enemiesdoom.empty()) {
+		return;
+	}
 	for (int i = 0; i < bullets.size(); i++)
 	{
 		for (int j = 0; j < enemiesdoom.size(); j++)
@@ -799,6 +863,9 @@ void Game::bullethitdoom()
 
 void Game::bullethitbillie()
 {
+	if (bullets.empty() || enemiesbillie.empty()) {
+		return;
+	}
 	for (int i = 0; i < bullets.size(); i++)
 	{
 		for (int j = 0; j < enemiesbillie.size(); j++)
@@ -828,6 +895,9 @@ void Game::bullethitbillie()
 
 void Game::bullethitclose()
 {
+	if (bullets.empty()) {
+		return;
+	}
 	for (int i = 0; i < bullets.size(); i++)
 	{
 		for (int j = 0; j < enemiesclose.size(); j++)
@@ -857,6 +927,7 @@ void Game::bullethitclose()
 
 void Game::bullethitlong()
 {
+	if (bullets.empty()) return;
 	for (int i = 0; i < bullets.size(); i++)
 	{
 		for (int j = 0; j < enemieslong.size(); j++)
@@ -884,29 +955,534 @@ void Game::bullethitlong()
 	}
 }
 
+
+
+
+
+//====================================================
+//ENEMIES BULLET
+void Game::enemiesbullet()
+{
+	bulletalice();
+	bulletdoom();
+	bulletbill();
+	bulletlong();
+}
+
 void Game::bulletalice()
 {
-	for (int i = 0; i < enemiesalice.size(); i++)
-	{
-
-	}
+	updatealicebullet();
+	alicebullethit();
 }
 
 void Game::bulletdoom()
 {
+	updatedoombullet();
+	doombullethit();
 }
 
 void Game::bulletbill()
 {
+	updatebillbullet();
+	billbullethit();
 }
 
-void Game::bulletclose()
-{
-}
 
 void Game::bulletlong()
 {
+	updatelongbullet();
+	longbullethit();
 }
+
+//SPAWN AND MOVEMENT BULLET
+void Game::updatealicebullet()
+{
+	for (int i = 0; i < enemiesalice.size(); i++)
+	{
+		posPX = player.track.getPosition().x;
+		posPY = player.track.getPosition().y;
+		if (enemiesalice[i].follow)
+		{
+			if (delaybullet >= 200)
+			{							
+				if (abs(enemiesalice[i].trackalice.getPosition().x - posPX) <= 700
+					&& abs(enemiesalice[i].trackalice.getPosition().y - posPY) <= 50)
+				{
+					delaybullet = 0;
+					if (enemiesalice[i].trackalice.getPosition().x > posPX)
+					{
+						enemybullet.bulletdirection = 3;
+						enemybullet.alicebullet.setTexture(alicetexture);
+						enemybullet.alicebullet.setPosition(Vector2f(
+							enemiesalice[i].trackalice.getPosition().x - 20,
+							enemiesalice[i].trackalice.getPosition().y));
+						aliceb.push_back(enemybullet);
+					}
+					if (enemiesalice[i].trackalice.getPosition().x < posPX)
+						{
+							enemybullet.bulletdirection = 4;
+							enemybullet.alicebullet.setTexture(alicetexture);
+							enemybullet.alicebullet.setPosition(Vector2f(
+								enemiesalice[i].trackalice.getPosition().x + 20,
+								enemiesalice[i].trackalice.getPosition().y));
+							aliceb.push_back(enemybullet);
+						}
+				}
+
+				if (abs(enemiesalice[i].trackalice.getPosition().y - posPY) <= 700
+					&& abs(enemiesalice[i].trackalice.getPosition().x - posPX) <= 50)
+					{
+						delaybullet = 0;
+						if (enemiesalice[i].trackalice.getPosition().y > posPY)
+						{
+							enemybullet.bulletdirection = 1;
+							enemybullet.alicebullet.setTexture(alicetexture);
+							enemybullet.alicebullet.setPosition(Vector2f(
+								enemiesalice[i].trackalice.getPosition().x,
+								enemiesalice[i].trackalice.getPosition().y - 20));
+							aliceb.push_back(enemybullet);
+						}
+						if (enemiesalice[i].trackalice.getPosition().y < posPY)
+						{
+							enemybullet.bulletdirection = 2;
+							enemybullet.alicebullet.setTexture(alicetexture);
+							enemybullet.alicebullet.setPosition(Vector2f(
+								enemiesalice[i].trackalice.getPosition().x,
+								enemiesalice[i].trackalice.getPosition().y + 20));
+							aliceb.push_back(enemybullet);
+						}
+					}
+				
+			}
+			else delaybullet++;
+		}
+	}
+
+}
+
+void Game::alicebullethit()
+{
+	if (aliceb.empty()) return;
+	//Bullet hit player
+	for (int j = 0; j < aliceb.size(); j++)
+	{
+		if (aliceb[j].bullettime < bossbullettime)
+		{
+			aliceb[j].bullettime++;
+			aliceb[j].updateBalice();
+			if (aliceb[j].alicebullet.getGlobalBounds().intersects
+			(player.track.getGlobalBounds()))
+			{
+				player.tomhp -= aliceb[j].aliceD;
+				aliceb.erase(aliceb.begin() + j);
+				break;
+			}
+		}
+		else
+		{
+			aliceb.erase(aliceb.begin() + j);
+			break;
+		}
+	}
+
+	//Bullet hit frame
+	for (int i = 0; i < aliceb.size(); i++)
+	{
+		if (aliceb[i].alicebullet.getGlobalBounds().intersects(
+			map.fmap1.getGlobalBounds()))
+		{
+			aliceb.erase(aliceb.begin() + i);
+			break;
+		}
+		if (aliceb[i].alicebullet.getGlobalBounds().intersects(
+			map.fmap2.getGlobalBounds()))
+		{
+			aliceb.erase(aliceb.begin() + i);
+			break;
+		}
+		if (aliceb[i].alicebullet.getGlobalBounds().intersects(
+			map.fmap3.getGlobalBounds()))
+		{
+			aliceb.erase(aliceb.begin() + i);
+			break;
+		}
+		if (aliceb[i].alicebullet.getGlobalBounds().intersects(
+			map.fmap4.getGlobalBounds()))
+		{
+			aliceb.erase(aliceb.begin() + i);
+			break;
+		}
+	}
+
+}
+
+void Game::updatedoombullet()
+{
+	for (int i = 0; i < enemiesdoom.size(); i++)
+	{
+		posPX = player.track.getPosition().x;
+		posPY = player.track.getPosition().y;
+		if (enemiesdoom[i].follow)
+		{
+			if (delaybullet >= 200)
+			{
+				if (abs(enemiesdoom[i].trackdoom.getPosition().x - posPX) <= 700
+					&& abs(enemiesdoom[i].trackdoom.getPosition().y - posPY) <= 50)
+				{
+					delaybullet = 0;
+					if (enemiesdoom[i].trackdoom.getPosition().x > posPX)
+					{
+						enemybullet.bulletdirection = 3;
+						enemybullet.doombullet.setTexture(doomtexture);
+						enemybullet.doombullet.setPosition(Vector2f(
+							enemiesdoom[i].trackdoom.getPosition().x - 20,
+							enemiesdoom[i].trackdoom.getPosition().y));
+						doomb.push_back(enemybullet);
+					}
+					if (enemiesdoom[i].trackdoom.getPosition().x < posPX)
+					{
+						enemybullet.bulletdirection = 4;
+						enemybullet.doombullet.setTexture(doomtexture);
+						enemybullet.doombullet.setPosition(Vector2f(
+							enemiesdoom[i].trackdoom.getPosition().x + 20,
+							enemiesdoom[i].trackdoom.getPosition().y));
+						doomb.push_back(enemybullet);
+					}
+				}
+
+				if (abs(enemiesdoom[i].trackdoom.getPosition().y - posPY) <= 700
+					&& abs(enemiesdoom[i].trackdoom.getPosition().x - posPX) <= 50)
+				{
+					delaybullet = 0;
+					if (enemiesdoom[i].trackdoom.getPosition().y > posPY)
+					{
+						enemybullet.bulletdirection = 1;
+						enemybullet.doombullet.setTexture(doomtexture);
+						enemybullet.doombullet.setPosition(Vector2f(
+							enemiesdoom[i].trackdoom.getPosition().x,
+							enemiesdoom[i].trackdoom.getPosition().y - 20));
+						doomb.push_back(enemybullet);
+					}
+					if (enemiesdoom[i].trackdoom.getPosition().y < posPY)
+					{
+						enemybullet.bulletdirection = 2;
+						enemybullet.doombullet.setTexture(doomtexture);
+						enemybullet.doombullet.setPosition(Vector2f(
+							enemiesdoom[i].trackdoom.getPosition().x,
+							enemiesdoom[i].trackdoom.getPosition().y + 20));
+						doomb.push_back(enemybullet);
+					}
+				}
+
+			}
+			else delaybullet++;
+		}
+	}
+}
+
+void Game::doombullethit()
+{
+	if (doomb.empty()) {
+		return;
+	}
+	//Bullet hit player
+	for (int j = 0; j < doomb.size(); j++)
+	{
+		if (doomb[j].bullettime < bossbullettime)
+		{
+			doomb[j].bullettime++;
+			doomb[j].updateBdoom();
+			if (doomb[j].doombullet.getGlobalBounds().intersects
+			(player.track.getGlobalBounds()))
+			{
+				player.tomhp -= doomb[j].doomD;
+				doomb.erase(doomb.begin() + j);
+				break;
+			}
+		}
+		else
+		{
+			doomb.erase(doomb.begin() + j);
+			break;
+		}
+	}
+
+	//Bullet hit frame
+	for (int i = 0; i < doomb.size(); i++)
+	{
+		if (doomb[i].doombullet.getGlobalBounds().intersects(
+			map.fmap1.getGlobalBounds()))
+		{
+			doomb.erase(doomb.begin() + i);
+			break;
+		}
+		if (doomb[i].doombullet.getGlobalBounds().intersects(
+			map.fmap2.getGlobalBounds()))
+		{
+			doomb.erase(doomb.begin() + i);
+			break;
+		}
+		if (doomb[i].doombullet.getGlobalBounds().intersects(
+			map.fmap3.getGlobalBounds()))
+		{
+			doomb.erase(doomb.begin() + i);
+			break;
+		}
+		if (doomb[i].doombullet.getGlobalBounds().intersects(
+			map.fmap4.getGlobalBounds()))
+		{
+			doomb.erase(doomb.begin() + i);
+			break;
+		}
+	}
+}
+
+void Game::updatebillbullet()
+{
+	for (int i = 0; i < enemiesdoom.size(); i++)
+	{
+		posPX = player.track.getPosition().x;
+		posPY = player.track.getPosition().y;
+		if (enemiesbillie[i].follow)
+		{
+			if (delaybullet >= 200)
+			{
+				if (abs(enemiesbillie[i].trackbill.getPosition().x - posPX) <= 700
+					&& abs(enemiesbillie[i].trackbill.getPosition().y - posPY) <= 50)
+				{
+					delaybullet = 0;
+					if (enemiesbillie[i].trackbill.getPosition().x > posPX)
+					{
+						enemybullet.bulletdirection = 3;
+						enemybullet.billbullet.setTexture(billtexture);
+						enemybullet.billbullet.setPosition(Vector2f(
+							enemiesbillie[i].trackbill.getPosition().x - 20,
+							enemiesbillie[i].trackbill.getPosition().y));
+						billb.push_back(enemybullet);
+					}
+					if (enemiesbillie[i].trackbill.getPosition().x < posPX)
+					{
+						enemybullet.bulletdirection = 4;
+						enemybullet.billbullet.setTexture(billtexture);
+						enemybullet.billbullet.setPosition(Vector2f(
+							enemiesbillie[i].trackbill.getPosition().x + 20,
+							enemiesbillie[i].trackbill.getPosition().y));
+						billb.push_back(enemybullet);
+					}
+				}
+
+				if (abs(enemiesbillie[i].trackbill.getPosition().y - posPY) <= 700
+					&& abs(enemiesbillie[i].trackbill.getPosition().x - posPX) <= 50)
+				{
+					delaybullet = 0;
+					if (enemiesbillie[i].trackbill.getPosition().y > posPY)
+					{
+						enemybullet.bulletdirection = 1;
+						enemybullet.billbullet.setTexture(billtexture);
+						enemybullet.billbullet.setPosition(Vector2f(
+							enemiesbillie[i].trackbill.getPosition().x,
+							enemiesbillie[i].trackbill.getPosition().y - 20));
+						billb.push_back(enemybullet);
+					}
+					if (enemiesbillie[i].trackbill.getPosition().y < posPY)
+					{
+						enemybullet.bulletdirection = 2;
+						enemybullet.billbullet.setTexture(billtexture);
+						enemybullet.billbullet.setPosition(Vector2f(
+							enemiesbillie[i].trackbill.getPosition().x,
+							enemiesbillie[i].trackbill.getPosition().y + 20));
+						billb.push_back(enemybullet);
+					}
+				}
+
+			}
+			else delaybullet++;
+		}
+	}
+}
+
+void Game::billbullethit()
+{
+	if (billb.empty()) return;
+	//Bullet hit player
+	for (int j = 0; j < billb.size(); j++)
+	{
+		if (billb[j].bullettime < bossbullettime)
+		{
+			billb[j].bullettime++;
+			billb[j].updateBbill();
+			if (billb[j].billbullet.getGlobalBounds().intersects
+			(player.track.getGlobalBounds()))
+			{
+				player.tomhp -= billb[j].billD;
+				billb.erase(billb.begin() + j);
+				break;
+			}
+		}
+		else
+		{
+			billb.erase(billb.begin() + j);
+			break;
+		}
+	}
+
+	//Bullet hit frame
+	for (int i = 0; i < billb.size(); i++)
+	{
+		if (billb[i].billbullet.getGlobalBounds().intersects(
+			map.fmap1.getGlobalBounds()))
+		{
+			billb.erase(billb.begin() + i);
+			break;
+		}
+		if (billb[i].billbullet.getGlobalBounds().intersects(
+			map.fmap2.getGlobalBounds()))
+		{
+			billb.erase(billb.begin() + i);
+			break;
+		}
+		if (billb[i].billbullet.getGlobalBounds().intersects(
+			map.fmap3.getGlobalBounds()))
+		{
+			billb.erase(billb.begin() + i);
+			break;
+		}
+		if (billb[i].billbullet.getGlobalBounds().intersects(
+			map.fmap4.getGlobalBounds()))
+		{
+			billb.erase(billb.begin() + i);
+			break;
+		}
+	}
+}
+
+void Game::updatelongbullet()
+{
+	for (int i = 0; i < enemieslong.size(); i++)
+	{
+		posPX = player.track.getPosition().x;
+		posPY = player.track.getPosition().y;
+		if (enemieslong[i].follow)
+		{
+			if (delaybullet >= 200)
+			{
+				if (abs(enemieslong[i].tracklong.getPosition().x - posPX) <= 700
+					&& abs(enemieslong[i].tracklong.getPosition().y - posPY) <= 50)
+				{
+					delaybullet = 0;
+					if (enemieslong[i].tracklong.getPosition().x > posPX)
+					{
+						enemybullet.bulletdirection = 3;
+						enemybullet.longbullet.setTexture(longtexture);
+						enemybullet.longbullet.setPosition(Vector2f(
+							enemieslong[i].tracklong.getPosition().x - 20,
+							enemieslong[i].tracklong.getPosition().y));
+						longb.push_back(enemybullet);
+					}
+					if (enemieslong[i].tracklong.getPosition().x < posPX)
+					{
+						enemybullet.bulletdirection = 4;
+						enemybullet.longbullet.setTexture(longtexture);
+						enemybullet.longbullet.setPosition(Vector2f(
+							enemieslong[i].tracklong.getPosition().x + 20,
+							enemieslong[i].tracklong.getPosition().y));
+						longb.push_back(enemybullet);
+					}
+				}
+
+				if (abs(enemieslong[i].tracklong.getPosition().y - posPY) <= 700
+					&& abs(enemieslong[i].tracklong.getPosition().x - posPX) <= 50)
+				{
+					delaybullet = 0;
+					if (enemieslong[i].tracklong.getPosition().y > posPY)
+					{
+						enemybullet.bulletdirection = 1;
+						enemybullet.longbullet.setTexture(longtexture);
+						enemybullet.longbullet.setPosition(Vector2f(
+							enemieslong[i].tracklong.getPosition().x,
+							enemieslong[i].tracklong.getPosition().y - 20));
+						longb.push_back(enemybullet);
+					}
+					if (enemieslong[i].tracklong.getPosition().y < posPY)
+					{
+						enemybullet.bulletdirection = 2;
+						enemybullet.longbullet.setTexture(longtexture);
+						enemybullet.longbullet.setPosition(Vector2f(
+							enemieslong[i].tracklong.getPosition().x,
+							enemieslong[i].tracklong.getPosition().y + 20));
+						longb.push_back(enemybullet);
+					}
+				}
+
+			}
+			else delaybullet++;
+		}
+	}
+}
+
+void Game::longbullethit()
+{
+	if (longb.empty()) return;
+	//Bullet hit player
+	for (int j = 0; j < longb.size(); j++)
+	{
+		if (longb[j].bullettime < normalbullettime)
+		{
+			longb[j].bullettime++;
+			longb[j].updateBlong();
+			if (longb[j].longbullet.getGlobalBounds().intersects
+			(player.track.getGlobalBounds()))
+			{
+				player.tomhp -= longb[j].longD;
+				longb[j].longf++;
+				longb.erase(longb.begin() + j);
+				break;
+			}
+		}
+		else
+		{
+			longb[j].longf++;
+			longb.erase(longb.begin() + j);
+			break;
+		}
+	}
+
+	//Bullet hit frame
+	for (int i = 0; i < longb.size(); i++)
+	{
+		if (!longb.empty()) {
+			break;
+		}
+		if (longb[i].longbullet.getGlobalBounds().intersects(
+			map.fmap1.getGlobalBounds()))
+		{
+			longb.erase(longb.begin() + i);
+			break;
+		}
+		if (longb[i].longbullet.getGlobalBounds().intersects(
+			map.fmap2.getGlobalBounds()))
+		{
+			longb.erase(longb.begin() + i);
+			break;
+		}
+		if (longb[i].longbullet.getGlobalBounds().intersects(
+			map.fmap3.getGlobalBounds()))
+		{
+			longb.erase(longb.begin() + i);
+			break;
+		}
+		if (longb[i].longbullet.getGlobalBounds().intersects(
+			map.fmap4.getGlobalBounds()))
+		{
+			longb.erase(longb.begin() + i);
+			break;
+		}
+	}
+}
+
+//=================================================
+
+
 
 
 //======================================
@@ -937,12 +1513,14 @@ void Game::playerhitalice()
 				{
 					player.track.setPosition(posPX - 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemiesalice[i].trackalice.getPosition().x < posPX)
 				{
 					player.track.setPosition(posPX + 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -954,12 +1532,14 @@ void Game::playerhitalice()
 				{
 					player.track.setPosition(posPX, posPY - 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemiesalice[i].trackalice.getPosition().y < posPY)
 				{
 					player.track.setPosition(posPX, posPY + 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -982,12 +1562,14 @@ void Game::playerhitdoom()
 				{
 					player.track.setPosition(posPX - 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemiesdoom[i].trackdoom.getPosition().x < posPX)
 				{
 					player.track.setPosition(posPX + 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -999,12 +1581,14 @@ void Game::playerhitdoom()
 				{
 					player.track.setPosition(posPX, posPY - 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemiesdoom[i].trackdoom.getPosition().y < posPY)
 				{
 					player.track.setPosition(posPX, posPY + 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -1027,12 +1611,14 @@ void Game::playerhitbilie()
 				{
 					player.track.setPosition(posPX - 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemiesbillie[i].trackbill.getPosition().x < posPX)
 				{
 					player.track.setPosition(posPX + 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -1044,12 +1630,14 @@ void Game::playerhitbilie()
 				{
 					player.track.setPosition(posPX, posPY - 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemiesbillie[i].trackbill.getPosition().y < posPY)
 				{
 					player.track.setPosition(posPX, posPY + 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -1072,12 +1660,14 @@ void Game::playerhitclose()
 				{
 					player.track.setPosition(posPX - 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemiesclose[i].trackclose.getPosition().x < posPX)
 				{
 					player.track.setPosition(posPX + 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -1089,12 +1679,14 @@ void Game::playerhitclose()
 				{
 					player.track.setPosition(posPX, posPY - 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemiesclose[i].trackclose.getPosition().y < posPY)
 				{
 					player.track.setPosition(posPX, posPY + 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -1117,12 +1709,14 @@ void Game::playerhitlong()
 				{
 					player.track.setPosition(posPX - 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemieslong[i].tracklong.getPosition().x < posPX)
 				{
 					player.track.setPosition(posPX + 50, posPY);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -1134,12 +1728,14 @@ void Game::playerhitlong()
 				{
 					player.track.setPosition(posPX, posPY - 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 				if (enemieslong[i].tracklong.getPosition().y < posPY)
 				{
 					player.track.setPosition(posPX, posPY + 50);
 					player.Tom.setPosition(player.track.getPosition());
+					player.tomhp--;
 					break;
 				}
 			}
@@ -1360,6 +1956,9 @@ void Game::bulletshitframe()
 {
 	for (int i = 0; i < bullets.size(); i++)
 	{
+		if (bullets.empty()) {
+			break;
+		}
 		if (bullets[i].blink.getGlobalBounds().intersects(
 			map.fmap1.getGlobalBounds()))
 		{
@@ -1395,12 +1994,11 @@ void Game::update()
 	player.update(); //Player Movement
 
 	
-	//Enemy Update
-	
-	updateEnemies(); //Movement And Spawn Enemy
+	//Enemy Update	
+	updateEnemies(); //Movement And Spawn Enemy Collision
 	
 	//Bullets Update
-	updatebullet(); //Bullets Movement	
+	updatebullet(); //Bullets Movement Bullets Hit Enemies	 Enemies bullets
 	firebullet(); //Firing Pressed
 
 	//Collision Frame
@@ -1408,7 +2006,7 @@ void Game::update()
 
 	//GAME UPDATE
 	playerhitenemy(); //Player collision
-	bullethit(); //BULLETS HIT ENEMIES
+	//bullethit(); //BULLETS HIT ENEMIES
 	stagechange();
 
 	std::cout << killenemy << "  " << boss << "  " << stage << std::endl;
