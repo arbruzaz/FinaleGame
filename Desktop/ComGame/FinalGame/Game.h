@@ -1,44 +1,72 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include<sstream>
+#include<string>
 #include "Player.h"
 #include "Bullet.h"
 #include "Enemy.h"
 #include "Map.h"
 #include "EnemiesBullet.h"
+#include "Ui.h"
 
-
+using namespace std;
 using namespace sf;
 class Game
 {
 public:
 
-	
-
 	Event ev;
-	RenderWindow window;
+	RenderWindow *window;
 	View view;
+	int* state;
+	
 	//Class Called
 	Player player;
 	Enemy enemy;
 	Bullet bullet;
 	Map map;
 	EnemiesBullet enemybullet;
+	Ui ui;
+
+	//Sounds
+	
+	SoundBuffer manoverboard;
+	Sound bg;
+
+	SoundBuffer hitbuffer;
+	SoundBuffer killbuffer;
+	SoundBuffer sbullet;
+	SoundBuffer stages;
+
+	Sound hit;
+	Sound kill;
+	Sound bullethits;
+	Sound changestages;
+
+	int* scores;
 
 	//Objects
-	std::vector<Bullet> bullets;
+	vector<Bullet> bullets;
 	Texture bulletTexture;
 
-	std::vector<Enemy> enemiesalice;
-	std::vector<Enemy> enemiesdoom;
-	std::vector<Enemy> enemiesbillie;
-	std::vector<Enemy> enemiesclose;
-	std::vector<Enemy> enemieslong;
 	
-	RectangleShape change;
 	
+
+	vector<Enemy> enemiesalice;
+	vector<Enemy> enemiesdoom;
+	vector<Enemy> enemiesbillie;
+	vector<Enemy> enemiesclose;
+	vector<Enemy> enemieslong;
+	
+	Texture doortext;
+	Sprite change;
+
+	Texture hpboxtext;
+	Sprite hpbox;
 
 	//Variables
 	bool firehold = false;
@@ -60,14 +88,15 @@ public:
 	int killbillie = 0;
 	
 	int killenemy; //Cout enemies killed 
-	int maxenemies = 15; //MAX NORMAL ENEMIES
+	int allkillenemy;
+	int maxenemies = 10; //MAX NORMAL ENEMIES
 	
 	int spawntimes = 100; //MAXSPAWNTIME ENEMY
 	
-	int stage = 3;   //STAGE GAME
+	int stage = 1;   //STAGE GAME
 	bool changestage = false;
 	
-	
+	bool* isplay;
 	
 
 	int generateRandom(int max);
@@ -75,17 +104,32 @@ public:
 	float posPX; //Check Collision QD
 	float posPY;
 
+	int level = 1;
+	bool upgradeb = false;
 
 	//Game Window Running
 	void run();
 	
+	void upgrade();
 	//Functions
 	
 	//===============UPDATE=================
+	void updateui();
+
+	//rehp
+	int spawnhp;
+	void hpbspawn();
+	void hpboxupdate();
+	vector<Sprite> hpb;
 
 	//STAGE UPDATE
 	void stagechange();
 	void spawndoor();
+	void endgame();
+
+	//Player gun
+
+
 
 	//Enemies Update
 	void countenemy();
@@ -114,6 +158,7 @@ public:
 	//      Bullets Update
 	//==========================
 	void updatebullet(); //bullet movement
+	void erasebullet();
 	
 	//BULLETPLAYER HIT OBJECTS
 	void firebullet(); //Keypressed fire
@@ -124,17 +169,25 @@ public:
 	void bullethitclose();  //BULLET HIT CLOSE
 	void bullethitlong();  //BULLET HIT LONG
 
+	void eraseenemy(); //Erase after died
+
 	//ENEMIES BULLET 
 	Texture alicetexture;
 	Texture doomtexture;
 	Texture billtexture;
 	Texture longtexture;
 
-	std::vector<EnemiesBullet> aliceb;
-	std::vector<EnemiesBullet> doomb;
-	std::vector<EnemiesBullet> billb;
-	std::vector<EnemiesBullet> longb;
+	vector<EnemiesBullet> aliceb;
+	vector<EnemiesBullet> doomb;
+	vector<EnemiesBullet> billb;
+	vector<EnemiesBullet> longb;
 
+	//Enemys Hp
+	vector<Ui> aliceui;
+	vector<Ui> doomui;
+	vector<Ui> billui;
+	vector<Ui> longui;
+	vector<Ui> closeui;
 	
 	
 	int bossbullettime = 350;
@@ -170,6 +223,7 @@ public:
 	void playerhitclose(); //CHECK PLAYER COLLIDE WITH CLOSE
 	void playerhitlong(); //CHECK PLAYER COLLIDE WITH LONG
 	void playerhitdoor(); //TO CHANGE STAGE
+	
 
 	//FRAME
 	void framebound(); //Game Frame Bound
@@ -190,6 +244,8 @@ public:
 	void update(); //Update Stuff
 
 	//Render
+	void renderui();
+
 	void renderenemies(); //render enemies
 	void renderalice(); //RENDER ALICE
 	void renderdoom(); //RENDER DOOM
@@ -200,12 +256,14 @@ public:
 	void renderbullets(); //render bullets
 	void renderenemiesbullet();
 
+	void renderhpb();
 	void rendermap();
+	void rendergun();
+	bool showgun = false;
+	int showguntime = 0;
 	void render(); //Render Objects
 	
 
-	Game();
-
-	
+	Game(RenderWindow*,int*,bool*,int*);
 };
 

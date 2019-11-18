@@ -9,7 +9,19 @@ Player::Player() : Tom(), tomtexture(), track()
 	
 	//Texture Stuff
 	tomtexture.loadFromFile("characters/Tom.png");
-	
+	guitar.loadFromFile("characters/guitar.png");
+	gunX = guitar.getSize().x;
+	gunY = guitar.getSize().y/4;
+	gun.setTexture(guitar);
+	gun.setScale(0.1, 0.1);
+
+	gun.setTextureRect(IntRect(gunX, gunY, gunX, gunY));
+	gun.setOrigin(gunX / 2, gunY / 2);
+
+	gun.setPosition(
+		track.getPosition().x,
+		track.getPosition().y + 50
+	);
 	tomSizeX = tomtexture.getSize().x / 3;
 	tomSizeY = tomtexture.getSize().y / 3;
 
@@ -20,8 +32,8 @@ Player::Player() : Tom(), tomtexture(), track()
 	Tom.setScale(0.03, 0.03);
 	Tom.setOrigin(Vector2f(tomSizeX / 2, tomSizeY / 2));
 	//DescribePlayer
-	tomspeed = 5;
-	tomhp = 15;
+
+
 
 	//=============================
 	//      Tracking Object
@@ -45,6 +57,12 @@ void Player::updateTom()
 		track.move(0.f, -tomspeed);
 		Tom.setPosition(track.getPosition());
 		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 2, tomSizeX, tomSizeY));
+	
+		gun.setPosition(
+			track.getPosition().x,
+			track.getPosition().y - 70
+		);
+		gun.setTextureRect(IntRect(0, 0, gunX, gunY));
 	}
 	if (Keyboard::isKeyPressed(Keyboard::S))
 	{
@@ -53,6 +71,11 @@ void Player::updateTom()
 		Tom.setPosition(track.getPosition());
 		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 2, tomSizeX, tomSizeY));
 		
+		gun.setPosition(
+			track.getPosition().x,
+			track.getPosition().y + 70
+		);
+		gun.setTextureRect(IntRect(0, gunY, gunX, gunY));
 	}
 	if (Keyboard::isKeyPressed(Keyboard::A))
 	{
@@ -61,6 +84,11 @@ void Player::updateTom()
 		Tom.setPosition(track.getPosition());
 		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 1, tomSizeX, tomSizeY));
 		
+		gun.setPosition(
+			track.getPosition().x - 60,
+			track.getPosition().y
+		);
+		gun.setTextureRect(IntRect(0, gunY * 3, gunX, gunY));
 	}
 	if (Keyboard::isKeyPressed(Keyboard::D))
 	{
@@ -69,9 +97,20 @@ void Player::updateTom()
 		Tom.setPosition(track.getPosition());
 		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, 0, tomSizeX, tomSizeY));
 		
+		gun.setPosition(
+			track.getPosition().x + 60,
+			track.getPosition().y
+		);
+		gun.setTextureRect(IntRect(0, gunY * 2, gunX, gunY));
 	}
+	if (ftime > 10)
+	{
+		animationFrame++;
+		ftime = 0;
+	}
+	else ftime++;
 
-	animationFrame++;
+	
 	if (animationFrame >= 3)
 		animationFrame = 0;
 }
@@ -80,3 +119,4 @@ void Player::update()
 {
 	updateTom();
 }
+

@@ -10,6 +10,30 @@ Enemy::Enemy() : trackalice(), alicetexture(), alice(),
 	initclose();   //ENEMY1
 	initlong();	   //ENEMY2
 	initbill();    //BOSS3
+
+	//
+	font.loadFromFile("mapgame/gamefont.ttf");
+
+	aliceuihp.setFont(font);
+	doomuihp.setFont(font);
+	billuihp.setFont(font);
+	closeuihp.setFont(font);
+	longuihp.setFont(font);
+
+	aliceuihp.setCharacterSize(10);
+	aliceuihp.setFillColor(Color::Red);
+
+	doomuihp.setCharacterSize(10);
+	doomuihp.setFillColor(Color::Red);
+
+	billuihp.setCharacterSize(10);
+	billuihp.setFillColor(Color::Red);
+
+	closeuihp.setCharacterSize(10);
+	closeuihp.setFillColor(Color::Red);
+
+	longuihp.setCharacterSize(10);
+	longuihp.setFillColor(Color::Red);
 }
 
 int Enemy::generateRandom(int max)
@@ -134,15 +158,15 @@ void Enemy::initbill()
 	//===================
 	//      BOSS 3
 	//===================
-	billietexture.loadFromFile("characters/bill.png");
+	billietexture.loadFromFile("characters/billlie.png");
 
-	billX = billietexture.getSize().x;
-	billY = billietexture.getSize().y;
+	billX = billietexture.getSize().x/3;
+	billY = billietexture.getSize().y/4;
 
 	billie.setTexture(billietexture);
 	billie.setTextureRect(IntRect
 	(0, 0, billX, billY));
-	billie.setScale(3, 3);
+	billie.setScale(1, 1);
 	billie.setOrigin(Vector2f(billX / 2, billY / 2));
 
 	trackbill.setSize(Vector2f(billX, billY));
@@ -150,7 +174,7 @@ void Enemy::initbill()
 	trackbill.setFillColor(Color::Transparent);
 	trackbill.setOutlineColor(Color::Green);
 	trackbill.setOutlineThickness(1);
-	trackbill.setScale(3, 3);
+	trackbill.setScale(1, 1);
 
 
 	billie.setPosition(trackbill.getPosition());
@@ -412,7 +436,7 @@ void Enemy::billmovement()
 
 
 
-	if (billief == 4)
+	if (billief == 3)
 	{
 		billief = 0;
 	}

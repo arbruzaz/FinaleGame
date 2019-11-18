@@ -1,6 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
+
 using namespace sf;
 class Map
 {
@@ -8,6 +9,10 @@ public:
 	//MAP
 	Texture texbg;
 	Sprite map1;
+	Texture texbg2;
+	Sprite map2;
+	Texture texbg3;
+	Sprite map3;
 
 	//Frame
 	Texture bgf1;

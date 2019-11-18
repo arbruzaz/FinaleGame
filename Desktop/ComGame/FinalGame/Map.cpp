@@ -5,6 +5,10 @@ Map::Map()
 	//Load map texture
 	texbg.loadFromFile("mapgame/bg.png");
 	map1.setTexture(texbg);
+	texbg2.loadFromFile("mapgame/bg1.png");
+	map2.setTexture(texbg2);
+	texbg3.loadFromFile("mapgame/bg2.png");
+	map3.setTexture(texbg3);
 
 	//Frame texture
 	bgf1.loadFromFile("mapgame/bgf1.png");

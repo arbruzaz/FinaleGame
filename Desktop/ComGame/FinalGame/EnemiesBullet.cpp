@@ -2,7 +2,10 @@
 
 EnemiesBullet::EnemiesBullet()
 {
-
+	alicebullet.setScale(1.5, 1.5);
+	doombullet.setScale(1.5, 1.5);
+	billbullet.setScale(0.15, 0.15);
+	longbullet.setScale(1.5, 1.5);
 }
 
 void EnemiesBullet::updateBalice()
@@ -82,7 +85,7 @@ void EnemiesBullet::updateBbill()
 	if (bulletdirection == 1) {
 		billbullet.move(0.f, -bsbill);
 		billbullet.setTextureRect(IntRect
-		(billX * billf, billY, billX, billY));
+		(billX * billf, 0, billX, billY));
 	}
 	else if (bulletdirection == 2) {
 		billbullet.move(0.f, bsbill);
@@ -92,25 +95,16 @@ void EnemiesBullet::updateBbill()
 	else if (bulletdirection == 3) {
 		billbullet.move(-bsbill, 0.f);
 		billbullet.setTextureRect(IntRect
-		(billX * billf, billY * 3, billX, billY));
+		(billX * billf, 0, billX, billY));
 	}
 	else if (bulletdirection == 4) {
 		billbullet.move(bsbill, 0.f);
 		billbullet.setTextureRect(IntRect
-		(billX * billf, billY * 2, billX, billY));
+		(billX * billf, 0, billX, billY));
 	}
-	if (ftime > 10)
-	{
-		billf++;
-		ftime = 0;
-	}
-	else ftime++;
 
 
-	if (billf == 2)
-	{
-		billf = 0;
-	}
+
 }
 
 void EnemiesBullet::updateBlong()

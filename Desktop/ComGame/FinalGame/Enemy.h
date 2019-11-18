@@ -6,7 +6,13 @@ class Enemy
 public:
 	
 	Enemy();
-	
+	Font font;
+
+	Text aliceuihp;
+	Text doomuihp;
+	Text billuihp;
+	Text closeuihp;
+	Text longuihp;
 	
 	//=========================
 	//          BOSS 1
@@ -15,8 +21,10 @@ public:
 	Sprite alice;
 	int alicef = 0;  //ANIMATION FRAMES
 	float aliceX, aliceY; //SPRITE DIVIDE
-	float aliceS = 1; //ALICE SPEED
-	float alicehp = 1; //ALICE HP
+	float aliceS = 3; //ALICE SPEED
+	int alicehp = 30; //ALICE HP
+	int maxalice = 30;
+	int alicescore = 25;
 	RectangleShape trackalice;
 
 	//==========================
@@ -26,8 +34,10 @@ public:
 	Sprite doom;
 	int doomf = 0;
 	float doomX, doomY;
-	float doomS = 1;
-	float doomhp = 15;
+	float doomS = 2;
+	int doomhp = 50;
+	int maxdoom = 50;
+	int doomscore = 40;
 	RectangleShape trackdoom;
 
 	//==========================
@@ -37,8 +47,10 @@ public:
 	Sprite billie;
 	int billief = 0;
 	float billX, billY;
-	float billS = 1;
-	float billhp = 20;
+	float billS = 3;
+	int billhp = 70;
+	int maxbill = 70;
+	int billscore = 100;
 	RectangleShape trackbill;
 
 	//==========================
@@ -48,8 +60,10 @@ public:
 	Sprite closeenemy;
 	int closef = 0;
 	float closeX, closeY;
-	float closeS = 1;
-	float closehp = 10;
+	float closeS = 3;
+	int closehp = 10;
+	int maxclose = 10;
+	int closescore = 15;
 	RectangleShape trackclose;
 
 	//==========================
@@ -60,7 +74,9 @@ public:
 	int longf = 0;
 	float longX, longY;
 	float longS = 1;
-	float longhp = 5;
+	int longhp = 5;
+	int maxlong = 5;
+	int longscore = 10;
 	RectangleShape tracklong;
 
 	//ANIMATION STUFF	
