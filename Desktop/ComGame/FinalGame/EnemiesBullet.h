@@ -20,16 +20,16 @@ public:
 	int alicef = 0;
 	
 	Sprite doombullet;
-	int bsdoom = 5;
+	int bsdoom = 4;
 	int doomR = 800;
-	int doomD = 10;
+	int doomD = 15;
 	float doomX, doomY;
 	int doomf = 0;
 
 	Sprite billbullet;
-	int bsbill = 5;
+	int bsbill = 6;
 	int billR = 900;
-	int billD = 10;
+	int billD = 20;
 	float billX, billY;
 	int billf = 0;
 
@@ -37,7 +37,7 @@ public:
 	Sprite longbullet;
 	int bslong = 5;
 	int longR = 350;
-	int longD = 10;
+	int longD = 5;
 	float longX, longY;
 	int longf = 0;
 

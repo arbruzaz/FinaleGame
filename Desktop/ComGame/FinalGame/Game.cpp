@@ -17,6 +17,13 @@ view(FloatRect(0.f, 0.f, 960.f, 540.f)), map(), enemy()
 
 	srand(time(NULL));
 		
+
+	//PAUSE
+	font.loadFromFile("mapgame/RESURREC.ttf");
+	popup.setFont(font);
+
+	
+
 	//Load Bullet Texture
 	bulletTexture.loadFromFile("characters/Logo.png");
 	bullet.blink.setTexture(bulletTexture);
@@ -52,6 +59,11 @@ view(FloatRect(0.f, 0.f, 960.f, 540.f)), map(), enemy()
 	hpbox.setOrigin(Vector2f(hpboxtext.getSize().x / 2, hpboxtext.getSize().y / 2));
 	hpbox.setScale(0.2, 0.2);
 
+	blood.loadFromFile("characters/blood.png");
+	lowhp.setTexture(blood);
+	lowhp.setOrigin(Vector2f(blood.getSize().x / 2, blood.getSize().y / 2));
+	lowhp.setScale(0.5, 0.5);
+
 	doortext.loadFromFile("mapgame/door.png");
 	change.setTexture(doortext);
 	change.setOrigin(Vector2f(doortext.getSize().x / 2, doortext.getSize().y / 2));
@@ -81,6 +93,37 @@ view(FloatRect(0.f, 0.f, 960.f, 540.f)), map(), enemy()
 	
 }
 
+void Game::updatepause()
+{
+	if (Keyboard::isKeyPressed(Keyboard::W))
+	{
+		select--;
+		if (select < 0) { select = 0; }
+	}
+	if (Keyboard::isKeyPressed(Keyboard::S))
+	{
+		select++;
+		if (select > 1) { select = 1; }
+	}
+}
+
+void Game::renderpause()
+{
+	for (int i = 0; i < 2; i++)
+	{
+		popup.setString(inpopup[i]);
+		popup.setCharacterSize(30);
+		popup.setStyle(sf::Text::Bold);
+		popup.setFillColor(sf::Color::Black);
+		if (select == i)
+		{
+			popup.setFillColor(sf::Color::Red);
+		}
+		popup.setPosition(Vector2f(player.track.getPosition().x - 50, player.track.getPosition().y - 100 + 50*i));
+		window->draw(popup);
+	}
+}
+
 int Game::generateRandom(int max)
 {
 	int randomnumber = rand();
@@ -107,10 +150,23 @@ void Game::run()
 					//Exit Key
 				case Event::KeyPressed:
 					if (Keyboard::isKeyPressed(Keyboard::Escape)) {
-						window->close();
+						pause = true;
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Enter))
+					{
+						if (select == 0)
+						{
+							pause = false;
+						}
+						if (select == 1)
+						{
+							pause = false;
+							stage = 4;
+						}
+
 					}
 					break;
-				}
+				}				
 			}
 
 			//Clear window before Run or Update
@@ -134,33 +190,33 @@ void Game::upgrade()
 		player.damage++;
 		level = 2;
 	}
-	else if (*scores >= 450 && level == 2)
+	else if (*scores >= 500 && level == 2)
 	{
 		player.tommaxhp += 5;
 		level = 3;
 	}
-	else if (*scores >= 550 && level == 3)
+	else if (*scores >= 700 && level == 3)
 	{
 		player.damage++;
 		level = 4;
 	}
-	else if (*scores >= 700 && level == 4)
+	else if (*scores >= 1000 && level == 4)
 	{
 		player.damage++;
 		player.tommaxhp += 5;
 		level = 5;
 	}
-	else if (*scores >= 800 && level == 5)
+	else if (*scores >= 1300 && level == 5)
 	{
 		player.damage++;
 		level = 6;
 	}
-	else if (*scores >= 1000 && level == 6)
+	else if (*scores >= 1600 && level == 6)
 	{
 		player.tommaxhp += 5;
 		level = 7;
 	}
-	else if (*scores >= 1500 && level == 7)
+	else if (*scores >= 2000 && level == 7)
 	{
 		player.tommaxhp += 10;
 		player.damage += 5;
@@ -186,11 +242,34 @@ void Game::updateui()
 	ui.uikill.setString("Kills : " + to_string(allkillenemy));
 }
 
+void Game::updatelowhp()
+{
+	lowhp.setPosition(player.track.getPosition());
+	if (player.tomhp <= 10)
+	{
+		getdamage = true;
+	}
+}
+
+void Game::renderlow()
+{
+	if (getdamage)
+	{
+		window->draw(lowhp);
+	}
+	if (showdamagetime >= 200)
+	{
+		getdamage = false;
+		showdamagetime = 0;
+	}
+	else { showdamagetime++; }
+}
+
 void Game::hpbspawn()
 {
 	hpbox.setPosition(Vector2f(
-		generateRandom((window->getSize().x - 200) + 100),
-		generateRandom((window->getSize().y-200) + 100)));
+		generateRandom((window->getSize().x - 200)) + 150,
+		generateRandom((window->getSize().y-100)) + 100));
 	hpb.push_back(hpbox);
 }
 
@@ -246,12 +325,17 @@ void Game::endgame()
 		cout << "dead" << endl;
 		*state = 3;
 		*isplay = false;
-		player.tommaxhp = 40;
+		player.tommaxhp = 60;
 		player.damage = 1;
 		player.tomhp = player.tommaxhp;
 		level = 1;
 		stage = 1;
 
+		maxenemies = 10;
+		getdamage = false;
+		killalice = 0;
+		killbillie = 0;
+		killdoom = 0;
 		boss = 0;
 		killenemy = 0;
 		allkillenemy = 0;
@@ -271,18 +355,22 @@ void Game::endgame()
 		enemiesclose.clear();
 		enemieslong.clear();
 	}
-	if (stage == 4)
+	else if (stage == 4)
 	{		
 		*state = 3;
 		*isplay = false;
-		player.tommaxhp = 20;
+		player.tommaxhp = 60;
 		player.damage = 1;
 		player.tomhp = player.tommaxhp;
 		hpb.clear();
+		maxenemies = 10;
+		getdamage = false;
 		stage = 1;
 		level = 1;
 		boss = 0;
-
+		killalice = 0;
+		killbillie = 0;
+		killdoom = 0;
 		killenemy = 0;
 		allkillenemy = 0;
 		nowalice = 0;
@@ -319,6 +407,7 @@ void Game::playerhitdoor()
 			nowbillie = 0;
 			changestage = false;		
 
+			maxenemies += 3;
 			aliceb.clear();
 			doomb.clear();
 			billb.clear();
@@ -456,7 +545,7 @@ void Game::rendermap()
 {
 	map.fmap1.setPosition(0, 0);
 	map.fmap2.setPosition(Vector2f(window->getSize().x - map.bgf2.getSize().x, 0));
-	map.fmap3.setPosition(Vector2f(0, window->getSize().y - map.bgf3.getSize().y));
+	map.fmap3.setPosition(Vector2f(0, 1080.f - map.bgf3.getSize().y));
 	map.fmap4.setPosition(0, 0);
 	if (stage == 1) { window->draw(map.map1); }
 	if (stage == 2) { window->draw(map.map2); }
@@ -507,7 +596,9 @@ void Game::render()
 		renderenemies();
 		renderbullets();
 		renderenemiesbullet();
+		renderlow();
 		spawndoor();
+		if (pause) { renderpause(); }
 	
 }
 
@@ -534,6 +625,7 @@ void Game::countenemy()
 	{
 		boss = 3;
 	}
+	
 }
 
 void Game::spawnalice()
@@ -699,7 +791,7 @@ void Game::updatedoom()
 		{
 			enemiesdoom[i].doomuihp.setPosition(Vector2f(
 				enemiesdoom[i].trackdoom.getPosition().x - 20,
-				enemiesdoom[i].trackdoom.getPosition().y - 61));
+				enemiesdoom[i].trackdoom.getPosition().y - 70));
 			enemiesdoom[i].doomuihp.setString(to_string(enemiesdoom[i].doomhp) +
 				" / " + to_string(enemiesdoom[i].maxdoom));
 			if (!enemiesdoom[i].follow)
@@ -741,7 +833,7 @@ void Game::updatebillie()
 		{		
 			enemiesbillie[i].billuihp.setPosition(Vector2f(
 				enemiesbillie[i].trackbill.getPosition().x - 20,
-				enemiesbillie[i].trackbill.getPosition().y - 61));
+				enemiesbillie[i].trackbill.getPosition().y - 130));
 			enemiesbillie[i].billuihp.setString(to_string(enemiesbillie[i].billhp) +
 				" / " + to_string(enemiesbillie[i].maxbill));
 			if (!enemiesbillie[i].follow)
@@ -759,7 +851,7 @@ void Game::updatebillie()
 
 void Game::updatesmallenemy()
 {
-	if (enemiesclose.size() + enemieslong.size() < maxenemies*stage)
+	if (enemiesclose.size() + enemieslong.size() < maxenemies)
 	{
 		if (currentenemiestime >= spawntimes)
 		{
@@ -1221,6 +1313,7 @@ void Game::eraseenemy()
 			enemiesdoom[j].alive = false;
 			*scores += enemiesdoom[j].doomscore;
 			allkillenemy++;
+			player.tomhp++;
 		}
 
 		if (enemiesdoom[j].alive == false)
@@ -1244,6 +1337,7 @@ void Game::eraseenemy()
 			enemieslong[j].alive = false;
 			*scores += enemieslong[j].longscore;
 			allkillenemy++;
+			player.tomhp++;
 		}
 		if (enemieslong[j].alive == false)
 		{
@@ -1261,6 +1355,7 @@ void Game::eraseenemy()
 			enemiesclose[j].alive = false; 
 			*scores += enemiesclose[j].closescore;
 			allkillenemy++;
+			player.tomhp++;
 		}
 		if (enemiesclose[j].alive == false)
 		{
@@ -1278,6 +1373,7 @@ void Game::eraseenemy()
 			enemiesbillie[j].alive = false; 
 			*scores += enemiesbillie[j].billscore;
 			allkillenemy++;
+			player.tomhp++;
 		}
 		if (enemiesbillie[j].alive == false)
 		{
@@ -1294,6 +1390,7 @@ void Game::eraseenemy()
 			enemiesalice[j].alive = false;
 			*scores += enemiesalice[j].alicescore;
 			allkillenemy++;
+			player.tomhp++;
 		}
 		if (enemiesalice[j].alive == false)
 		{
@@ -1426,6 +1523,7 @@ void Game::alicebullethit()
 			if (aliceb[j].alicebullet.getGlobalBounds().intersects
 			(player.track.getGlobalBounds()))
 			{
+				getdamage = true;
 				player.tomhp -= aliceb[j].aliceD;
 				aliceb.erase(aliceb.begin() + j);
 				break;
@@ -1477,7 +1575,7 @@ void Game::updatedoombullet()
 		posPY = player.track.getPosition().y;
 		if (enemiesdoom[i].follow)
 		{
-			if (delaybullet >= 100)
+			if (delaybullet >= 150)
 			{
 				if (abs(enemiesdoom[i].trackdoom.getPosition().x - posPX) <= 500
 					&& abs(enemiesdoom[i].trackdoom.getPosition().y - posPY) <= 100)
@@ -1548,6 +1646,7 @@ void Game::doombullethit()
 			if (doomb[j].doombullet.getGlobalBounds().intersects
 			(player.track.getGlobalBounds()))
 			{
+				getdamage = true;
 				player.tomhp -= doomb[j].doomD;
 				doomb.erase(doomb.begin() + j);
 				break;
@@ -1598,7 +1697,7 @@ void Game::updatebillbullet()
 		posPY = player.track.getPosition().y;
 		if (enemiesbillie[i].follow)
 		{
-			if (delaybullet >= 75)
+			if (delaybullet >= 120)
 			{
 				if (abs(enemiesbillie[i].trackbill.getPosition().x - posPX) <= 800
 					&& abs(enemiesbillie[i].trackbill.getPosition().y - posPY) <= 150)
@@ -1667,6 +1766,7 @@ void Game::billbullethit()
 			if (billb[j].billbullet.getGlobalBounds().intersects
 			(player.track.getGlobalBounds()))
 			{
+				getdamage = true;
 				player.tomhp -= billb[j].billD;
 				billb.erase(billb.begin() + j);
 				break;
@@ -1786,6 +1886,7 @@ void Game::longbullethit()
 			if (longb[j].longbullet.getGlobalBounds().intersects
 			(player.track.getGlobalBounds()))
 			{
+				getdamage = true;
 				player.tomhp -= longb[j].longD;
 				longb[j].longf++;
 				longb.erase(longb.begin() + j);
@@ -1859,6 +1960,7 @@ void Game::playerhitalice()
 		posPY = player.track.getPosition().y;
 		if (player.track.getGlobalBounds().intersects(enemiesalice[i].trackalice.getGlobalBounds()))
 		{
+			getdamage = true;
 			hit.play();
 			if (abs(enemiesalice[i].trackalice.getPosition().x - posPX) >
 				abs(enemiesalice[i].trackalice.getPosition().y - posPY))
@@ -1909,6 +2011,7 @@ void Game::playerhitdoom()
 		posPY = player.track.getPosition().y;
 		if (player.track.getGlobalBounds().intersects(enemiesdoom[i].trackdoom.getGlobalBounds()))
 		{
+			getdamage = true;
 			hit.play();
 			if (abs(enemiesdoom[i].trackdoom.getPosition().x - posPX) >
 				abs(enemiesdoom[i].trackdoom.getPosition().y - posPY))
@@ -1959,6 +2062,7 @@ void Game::playerhitbilie()
 		posPY = player.track.getPosition().y;
 		if (player.track.getGlobalBounds().intersects(enemiesbillie[i].trackbill.getGlobalBounds()))
 		{
+			getdamage = true;
 			hit.play();
 			if (abs(enemiesbillie[i].trackbill.getPosition().x - posPX) >
 				abs(enemiesbillie[i].trackbill.getPosition().y - posPY))
@@ -2009,6 +2113,7 @@ void Game::playerhitclose()
 		posPY = player.track.getPosition().y;
 		if (player.track.getGlobalBounds().intersects(enemiesclose[i].trackclose.getGlobalBounds()))
 		{
+			getdamage = true;
 			hit.play();
 			if (abs(enemiesclose[i].trackclose.getPosition().x - posPX) >
 				abs(enemiesclose[i].trackclose.getPosition().y - posPY))
@@ -2059,6 +2164,7 @@ void Game::playerhitlong()
 		posPY = player.track.getPosition().y;
 		if (player.track.getGlobalBounds().intersects(enemieslong[i].tracklong.getGlobalBounds()))
 		{
+			getdamage = true;
 			hit.play();
 			if (abs(enemieslong[i].tracklong.getPosition().x - posPX) >
 				abs(enemieslong[i].tracklong.getPosition().y - posPY))
@@ -2348,25 +2454,33 @@ void Game::bulletshitframe()
 //UPDATE ALL
 void Game::update()
 {
-	//Player Update
-	player.update(); //Player Movement
+	if (!pause)
+	{
+		//Player Update
+		player.update(); //Player Movement
+		if (player.tomhp >= player.tommaxhp) { player.tomhp = player.tommaxhp; }
+		updateui();
+		hpboxupdate();
+		upgrade();
+		//Enemy Update	
+		updateEnemies(); //Movement And Spawn Enemy Collision
 
-	updateui();
-	hpboxupdate();
-	upgrade();
-	//Enemy Update	
-	updateEnemies(); //Movement And Spawn Enemy Collision
-	
-	//Bullets Update
-	updatebullet(); //Bullets Movement Bullets Hit Enemies	 Enemies bullets
-	firebullet(); //Firing Pressed
+		//Bullets Update
+		updatebullet(); //Bullets Movement Bullets Hit Enemies	 Enemies bullets
+		firebullet(); //Firing Pressed
 
-	//Collision Frame
-	framebound();
+		//Collision Frame
+		framebound();
 
-	//GAME UPDATE
-	playerhitenemy(); //Player collision
-	stagechange();
+		updatelowhp();
+
+		//GAME UPDATE
+		playerhitenemy(); //Player collision
+		stagechange();
+	}
+	else updatepause();
+
+
 	endgame();
 
 }

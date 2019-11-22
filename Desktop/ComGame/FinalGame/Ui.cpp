@@ -2,7 +2,7 @@
 
 Ui::Ui()
 {
-	font.loadFromFile("mapgame/gamefont.ttf");
+	font.loadFromFile("mapgame/Superspace Bold ver 1.00.ttf");
 
 	uiscore.setFont(font);
 
@@ -13,17 +13,17 @@ Ui::Ui()
 	uikill.setFont(font);
 
 	uiscore.setCharacterSize(15);
-	uiscore.setFillColor(Color::Red);
+	uiscore.setFillColor(Color::Green);
 
 	uihp.setCharacterSize(15);
-	uihp.setFillColor(Color::Red);
+	uihp.setFillColor(Color::Green);
 
 	uilevel.setCharacterSize(15);
-	uilevel.setFillColor(Color::Red);
+	uilevel.setFillColor(Color::Green);
 	uiattack.setCharacterSize(15);
-	uiattack.setFillColor(Color::Red);
+	uiattack.setFillColor(Color::Green);
 
 	uikill.setCharacterSize(15);
-	uikill.setFillColor(Color::Red);
+	uikill.setFillColor(Color::Green);
 
 }

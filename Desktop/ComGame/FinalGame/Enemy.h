@@ -60,7 +60,7 @@ public:
 	Sprite closeenemy;
 	int closef = 0;
 	float closeX, closeY;
-	float closeS = 3;
+	float closeS = 2;
 	int closehp = 10;
 	int maxclose = 10;
 	int closescore = 15;

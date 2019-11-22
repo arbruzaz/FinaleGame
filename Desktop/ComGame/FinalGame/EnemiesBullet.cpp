@@ -4,7 +4,7 @@ EnemiesBullet::EnemiesBullet()
 {
 	alicebullet.setScale(1.5, 1.5);
 	doombullet.setScale(1.5, 1.5);
-	billbullet.setScale(0.15, 0.15);
+	billbullet.setScale(0.13, 0.13);
 	longbullet.setScale(1.5, 1.5);
 }
 

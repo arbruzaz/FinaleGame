@@ -23,13 +23,13 @@ Player::Player() : Tom(), tomtexture(), track()
 		track.getPosition().y + 50
 	);
 	tomSizeX = tomtexture.getSize().x / 3;
-	tomSizeY = tomtexture.getSize().y / 3;
+	tomSizeY = tomtexture.getSize().y / 4;
 
 	Tom.setTexture(tomtexture);
 	Tom.setTextureRect(
 		IntRect(0, 0, tomSizeX, tomSizeY));
 
-	Tom.setScale(0.03, 0.03);
+	Tom.setScale(0.1, 0.1);
 	Tom.setOrigin(Vector2f(tomSizeX / 2, tomSizeY / 2));
 	//DescribePlayer
 
@@ -39,7 +39,7 @@ Player::Player() : Tom(), tomtexture(), track()
 	//      Tracking Object
 	//=============================
 	track.setSize(Vector2f(tomSizeX, tomSizeY));
-	track.setScale(0.03, 0.03);
+	track.setScale(0.1, 0.1);
 	track.setFillColor(Color::Transparent);
 	track.setOutlineColor(Color::Green);
 	track.setOutlineThickness(100);
@@ -56,7 +56,7 @@ void Player::updateTom()
 		direction = 1;
 		track.move(0.f, -tomspeed);
 		Tom.setPosition(track.getPosition());
-		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 2, tomSizeX, tomSizeY));
+		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 0, tomSizeX, tomSizeY));
 	
 		gun.setPosition(
 			track.getPosition().x,
@@ -69,7 +69,7 @@ void Player::updateTom()
 		direction = 2;
 		track.move(0.f, tomspeed);
 		Tom.setPosition(track.getPosition());
-		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 2, tomSizeX, tomSizeY));
+		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 1, tomSizeX, tomSizeY));
 		
 		gun.setPosition(
 			track.getPosition().x,
@@ -82,7 +82,7 @@ void Player::updateTom()
 		direction = 3;
 		track.move(-tomspeed, 0.f);
 		Tom.setPosition(track.getPosition());
-		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 1, tomSizeX, tomSizeY));
+		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 2, tomSizeX, tomSizeY));
 		
 		gun.setPosition(
 			track.getPosition().x - 60,
@@ -95,7 +95,7 @@ void Player::updateTom()
 		direction = 4;
 		track.move(tomspeed, 0.f);
 		Tom.setPosition(track.getPosition());
-		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, 0, tomSizeX, tomSizeY));
+		Tom.setTextureRect(IntRect(tomSizeX * animationFrame, tomSizeY * 3, tomSizeX, tomSizeY));
 		
 		gun.setPosition(
 			track.getPosition().x + 60,

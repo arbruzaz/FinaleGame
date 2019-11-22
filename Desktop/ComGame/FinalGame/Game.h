@@ -68,6 +68,11 @@ public:
 	Texture hpboxtext;
 	Sprite hpbox;
 
+	Texture blood;
+	Sprite lowhp;
+	bool getdamage = false;
+	int showdamagetime = 0;
+
 	//Variables
 	bool firehold = false;
 	int currentenemiestime = 300; //For SPAWN ENEMY
@@ -89,7 +94,7 @@ public:
 	
 	int killenemy; //Cout enemies killed 
 	int allkillenemy;
-	int maxenemies = 10; //MAX NORMAL ENEMIES
+	int maxenemies = 7; //MAX NORMAL ENEMIES
 	
 	int spawntimes = 100; //MAXSPAWNTIME ENEMY
 	
@@ -97,7 +102,14 @@ public:
 	bool changestage = false;
 	
 	bool* isplay;
+	bool pause = false;
 	
+	std::vector<std::string> inpopup = { "Continue", "Quit" };
+	Text popup;
+	Font font;
+	void updatepause();
+	void renderpause();
+	int select = 0;
 
 	int generateRandom(int max);
 
@@ -115,6 +127,9 @@ public:
 	
 	//===============UPDATE=================
 	void updateui();
+
+	void updatelowhp();
+	void renderlow();
 
 	//rehp
 	int spawnhp;

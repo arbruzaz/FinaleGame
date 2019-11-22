@@ -12,7 +12,7 @@ Enemy::Enemy() : trackalice(), alicetexture(), alice(),
 	initbill();    //BOSS3
 
 	//
-	font.loadFromFile("mapgame/gamefont.ttf");
+	font.loadFromFile("mapgame/Superspace Bold ver 1.00.ttf");
 
 	aliceuihp.setFont(font);
 	doomuihp.setFont(font);

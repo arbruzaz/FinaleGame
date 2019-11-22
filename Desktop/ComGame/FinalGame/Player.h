@@ -17,8 +17,8 @@ public:
 	int gunX, gunY;
 	Sprite Tom;
 	Texture tomtexture;
-	float tomspeed = 5;
-	int tommaxhp = 40;
+	float tomspeed = 6;
+	int tommaxhp = 60;
 	int tomhp = tommaxhp;
 	int damage = 1;
 	int tomSizeX;
