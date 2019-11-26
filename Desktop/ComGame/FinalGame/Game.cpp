@@ -109,6 +109,11 @@ void Game::updatepause()
 
 void Game::renderpause()
 {
+	RectangleShape pausebg;
+	pausebg.setFillColor(Color::Yellow);
+	pausebg.setSize(Vector2f(200.f, 100.f));
+	pausebg.setPosition(Vector2f(player.track.getPosition().x - 70, player.track.getPosition().y - 55));
+	window->draw(pausebg);
 	for (int i = 0; i < 2; i++)
 	{
 		popup.setString(inpopup[i]);
@@ -119,7 +124,7 @@ void Game::renderpause()
 		{
 			popup.setFillColor(sf::Color::Red);
 		}
-		popup.setPosition(Vector2f(player.track.getPosition().x - 50, player.track.getPosition().y - 100 + 50*i));
+		popup.setPosition(Vector2f(player.track.getPosition().x - 40, player.track.getPosition().y - 50 + 50*i));
 		window->draw(popup);
 	}
 }
@@ -219,7 +224,7 @@ void Game::upgrade()
 	else if (*scores >= 2000 && level == 7)
 	{
 		player.tommaxhp += 10;
-		player.damage += 5;
+		player.damage += 3;
 		level = 8;
 	}
 }
@@ -269,7 +274,7 @@ void Game::hpbspawn()
 {
 	hpbox.setPosition(Vector2f(
 		generateRandom((window->getSize().x - 200)) + 150,
-		generateRandom((window->getSize().y-100)) + 100));
+		generateRandom((window->getSize().y- 150)) + 100));
 	hpb.push_back(hpbox);
 }
 
@@ -1575,9 +1580,9 @@ void Game::updatedoombullet()
 		posPY = player.track.getPosition().y;
 		if (enemiesdoom[i].follow)
 		{
-			if (delaybullet >= 150)
+			if (delaybullet >= 125)
 			{
-				if (abs(enemiesdoom[i].trackdoom.getPosition().x - posPX) <= 500
+				if (abs(enemiesdoom[i].trackdoom.getPosition().x - posPX) <= 700
 					&& abs(enemiesdoom[i].trackdoom.getPosition().y - posPY) <= 100)
 				{
 					delaybullet = 0;
@@ -1601,7 +1606,7 @@ void Game::updatedoombullet()
 					}
 				}
 
-				if (abs(enemiesdoom[i].trackdoom.getPosition().y - posPY) <= 500
+				if (abs(enemiesdoom[i].trackdoom.getPosition().y - posPY) <= 700
 					&& abs(enemiesdoom[i].trackdoom.getPosition().x - posPX) <= 100)
 				{
 					delaybullet = 0;

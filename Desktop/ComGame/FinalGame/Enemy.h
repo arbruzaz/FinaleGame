@@ -48,8 +48,8 @@ public:
 	int billief = 0;
 	float billX, billY;
 	float billS = 3;
-	int billhp = 70;
-	int maxbill = 70;
+	int billhp = 100;
+	int maxbill = 100;
 	int billscore = 100;
 	RectangleShape trackbill;
 

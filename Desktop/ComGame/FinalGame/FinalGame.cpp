@@ -7,7 +7,7 @@
 using namespace sf;
 int main()
 {
-	sf::RenderWindow window(VideoMode(1920, 1080), "Blink Game");
+	sf::RenderWindow window(VideoMode(1920, 1080), "Blink Game",Style::Fullscreen);
 	View view(FloatRect(0,0,1920,1080));
 	int state = 0;
 	bool isplay = false;
@@ -235,6 +235,7 @@ int main()
 						playerInput += event.text.unicode;
 					}
 				}
+				
 			}
 		}
 		else 
@@ -242,7 +243,7 @@ int main()
 			game.run();
 		}
 	}
-	return 0;
+	
 }
 
 
